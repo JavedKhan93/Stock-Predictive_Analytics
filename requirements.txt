@@ -2,9 +2,7 @@ streamlit
 pandas
 numpy
 plotly
-matplotlib
-seaborn
-tensorflow-cpu
+tensorflow
 scikit-learn
-yfinance
-mlxtend
+yfinance>=0.2.54
+curl-cffi>=0.7.4
