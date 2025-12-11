@@ -178,6 +178,11 @@ with tab1:
     st.markdown('<div class="css-card">', unsafe_allow_html=True)  # Start Card
     st.subheader("Interactive Market Chart")
 
+    if 'stock_df' not in locals():
+    st.error("⚠️ critical error: 'stock_df' is not defined. The data failed to load.")
+    st.info("Check if 'stock_market_data_2014_2024.csv' is uploaded and the path is correct.")
+    st.stop()  # Stop the script here so it doesn't crash below
+
     col_ctrl1, col_ctrl2 = st.columns([1, 3])
     with col_ctrl1:
         chart_type = st.radio("Chart Type:", ["Candlestick", "Line"], horizontal=True)
@@ -327,4 +332,5 @@ with tab4:
 
     except:
         st.warning("Could not fetch live news at this moment.")
+
         st.markdown(f"👉 **[Click here to read {ticker} News directly](https://finance.yahoo.com/quote/{ticker}/news)**")
